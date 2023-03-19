@@ -1,4 +1,4 @@
-import React from 'react'
+import styles from './Preview.module.css'
 
 const Preview = (props) => {
   console.log(props.data);
@@ -12,7 +12,7 @@ const Preview = (props) => {
     case 'air': {
       firstSelection = [
         {name: "manufacturer", value: props.data.manufacturer},
-        {name: "model", value: props.data.model},
+        {name: "Model", value: props.data.model},
         {name: "max_speed_knots", value: props.data.max_speed_knots},
         {name: "height_ft", value: props.data.height_ft},
         {name: "length_ft", value: props.data.length_ft},
@@ -38,10 +38,10 @@ const Preview = (props) => {
     }
     case 'car': {
       firstSelection = [
-        {name: "make", value: props.data.make},
-        {name: "model", value: props.data.model},
-        {name: "year", value: props.data.year},
-        {name: "class", value: props.data.class},
+        {name: "Producer", value: props.data.make},
+        {name: "Model", value: props.data.model},
+        {name: "Year", value: props.data.year},
+        {name: "Class", value: props.data.class},
       ];
 
       secondSelection = [
@@ -61,8 +61,8 @@ const Preview = (props) => {
     }
     case 'moto': {
       firstSelection = [
-        {name: "make", value: props.data.make},
-        {name: "model", value: props.data.model},
+        {name: "Producer", value: props.data.make},
+        {name: "Model", value: props.data.model},
         {name: "clutch", value: props.data.clutch},
         {name: "cooling", value: props.data.cooling},
         {name: "gearbox", value: props.data.gearbox},
@@ -71,7 +71,7 @@ const Preview = (props) => {
         {name: "starter", value: props.data.starter},
         {name: "transmission", value: props.data.transmission},
         {name: "type", value: props.data.type},
-        {name: "year", value: props.data.year},
+        {name: "Year", value: props.data.year},
       ];
 
       secondSelection = [
@@ -110,7 +110,7 @@ const Preview = (props) => {
     case 'heli': {
       firstSelection = [
         {name: "manufacturer", value: props.data.manufacturer},
-        {name: "model", value: props.data.model},
+        {name: "Model", value: props.data.model},
         {name: "fuel_capacity_gallons", value: props.data.fuel_capacity_gallons},
         {name: "blade_material", value: props.data.blade_material},
         {name: "num_blades", value: props.data.num_blades},
@@ -139,20 +139,20 @@ const Preview = (props) => {
 
   return (
     <div>
-      <div className='section1'>
+      <div className={styles.cont}>
         <h1>Basic information</h1>
-        {props.data && firstSelection.map((item) => <p key={item.name}>{item.name} {item.value}</p>)}
+        {props.data && firstSelection.map((item) => <div className={styles.sections} key={item.name}>{item.name} {item.value}</div>)}
         
       </div>
 
-      <div className='section2'>
+      <div className={styles.cont} id="section2">
       <h1>More information</h1>
-      {props.data && secondSelection.map((item) => <p key={item.name}>{item.name} {item.value}</p>)}
+      {props.data && secondSelection.map((item) => <div className={styles.sections} key={item.name}>{item.name} {item.value}</div>)}
       </div>
       
-      <div className='section3'>
-      <h1>Afgawsfjafaw information</h1>
-      {props.data && thirdSelection.map((item) => <p key={item.name}>{item.name} {item.value}</p>)}
+      <div className={styles.cont}>
+      <h1>Additional information</h1>
+      {props.data && thirdSelection.map((item) => <div className={styles.sections} key={item.name}>{item.name} {item.value}</div>)}
 
       </div>
 

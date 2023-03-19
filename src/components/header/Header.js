@@ -1,16 +1,17 @@
 import { Link } from "react-router-dom"
 import { Button } from "@mui/material"
+import styles from './Header.module.css'
 
 const Header = () => {
   return (
-    <div>
-        <div className="company">TopGear</div>
-        <div className="options">
-            <Link to='/:'>Bla</Link>
-            <Link to='/:'>Bla</Link>
-            <Link to='/:'>Bla</Link>
+    <div className={styles.root}>
+        <div className="company"><h2>TopGear</h2></div>
+        <div className={styles.options}>
+            <a href='#section1'>Basic information</a>
+            <a href='#section2'>More information</a>
+            <a href='#section2'>Additional information</a>
         </div>
-        <div className="button"><Button>a</Button></div>
+        <a href='#section2'><Button variant="contained">Go down</Button></a>
     </div>
   )
 }

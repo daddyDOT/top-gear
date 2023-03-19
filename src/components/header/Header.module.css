@@ -1,0 +1,21 @@
+
+.root {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    height: 100px;
+    align-items: center;
+    padding-inline: 10%;
+    color: #FFF;
+}
+
+.root button {
+    color: #000;
+    background-color: #56a9ff;
+}
+
+a {
+    padding-inline: 40px;
+    color: #FFF;
+    text-decoration: none;
+}

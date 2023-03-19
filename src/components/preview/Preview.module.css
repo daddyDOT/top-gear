@@ -1,0 +1,17 @@
+.cont {
+    justify-content: center;
+    display: grid;
+    text-align: center;
+}
+.cont h1 {
+    color: #FFF;
+}
+.sections {
+    width: 80%;
+    justify-self: center;
+    border-radius: 10%;
+    border-color: #FFF;
+    border-width: 1px;
+    color: #f1f1f1;
+    text-align: center;
+}

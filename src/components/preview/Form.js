@@ -1,6 +1,8 @@
 import { Button } from '@mui/material'
 import { useEffect, useState } from 'react'
 import Preview from './Preview';
+import Recommended from './Recommended';
+import styles from './Form.module.css'
 
 const Form = () => {
 
@@ -8,22 +10,33 @@ const Form = () => {
   const [input, setInput] = useState('');
   const [data, setData] = useState(null);
 
+  const GetProperText = () => {
+    switch(type)
+    {
+      case 'air': return 'Search for an airplane...';
+      case 'car': return 'Search for a car...';
+      case 'heli': return 'Search for a helicopter...';
+      case 'moto': return 'Search for a motocycle...';
+      default: return 'Search for a vehicle...';
+    }
+  }
+
   useEffect(() => {
     setData(null);
-  
     return;
   }, [type])
 
   const Function = async () =>
   {
-    let url;
-    const arg = input.split(" ");
     try {
       if(!input || input === ' ')
       {
         return console.log('error1');
       }
-
+      
+      let url;
+      const arg = input.split(" ");
+      
       switch(type)
       {
         case 'air': {
@@ -31,7 +44,7 @@ const Form = () => {
           break;
         }
         case 'car': {
-          url = `${process.env.REACT_APP_CARS_API_URL}limit=2&model=${arg[0]}`;
+          url = `${process.env.REACT_APP_CARS_API_URL}limit=1&model=${arg[0]}`;
           break;
         }
         case 'moto': {
@@ -53,6 +66,9 @@ const Form = () => {
       });
       const data = await response.json();
 
+      console.log(url);
+      console.log(data);
+
       if(data.length === 0)
       {
         let res, check;
@@ -67,7 +83,7 @@ const Form = () => {
 
         if(check.length === 0)
         {
-          url = `${process.env.REACT_APP_CARS_API_URL}limit=2&model=${arg[0]}`;
+          url = `${process.env.REACT_APP_CARS_API_URL}limit=1&model=${arg[0]}`;
           res = await fetch(url, {
             headers: {
               "X-Api-Key": process.env.REACT_APP_API_KEY,
@@ -132,20 +148,26 @@ const Form = () => {
 
   return (
     <div>
-        <div className='buttons'>
-            <Button onClick={() => setType('air')}>a</Button>
-            <Button onClick={() => setType('car')}>b</Button>
-            <Button onClick={() => setType('heli')}>c</Button>
-            <Button onClick={() => setType('moto')}>d</Button>
+      <div className={styles.container}>
+        <hr></hr>
+        <div className={styles.buttons}>
+            <Button variant="outlined" onClick={() => setType('air')}><img alt="" src={require('../../images/departures.png')}></img></Button>
+            <Button variant="outlined" onClick={() => setType('car')}><img alt="" src={require('../../images/car.png')}></img></Button>
+            <Button variant="outlined" onClick={() => setType('heli')}><img alt="" src={require('../../images/helicopter.png')}></img></Button>
+            <Button variant="outlined" onClick={() => setType('moto')}><img alt="" src={require('../../images/motorcycle.png')}></img></Button>
         </div>
 
-        <div className='search'>
-            <input placeholder='Search for a vehicle...' onChange={(e) => setInput(e.target.value)}></input>
-            <Button onClick={() => Function()}>Go</Button>
+        <div className={styles.search}>
+            <input type="text" placeholder={GetProperText()} onChange={(e) => setInput(e.target.value)}></input>
+            <Button variant="outlined" onClick={() => Function()}>Go</Button>
         </div>
 
-        {data ? <Preview data={data} type={type} /> : <img src='https://img.freepik.com/free-vector/empty-concept-illustration_114360-1253.jpg?w=2000'></img>}
-
+        <p id="section1"></p>
+        {data ? <Preview data={data} type={type} /> : <div className={styles.box}><img alt="" src={require('../../images/empty-box.png')}></img></div>}
+        <p id="section2"></p>
+      </div>
+      <hr></hr>
+      <Recommended />
     </div>
   )
 }

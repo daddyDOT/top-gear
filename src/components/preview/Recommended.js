@@ -1,4 +1,4 @@
-import React from 'react'
+import styles from './Recommended.module.css'
 
 const models = [
     "Audi",
@@ -14,15 +14,16 @@ const Recommended = () => {
     const firstRandom = Math.floor(Math.random() * models.length);
     let secondRandom = Math.floor(Math.random() * models.length);
 
-    while(firstRandom == secondRandom)
+    while(firstRandom === secondRandom)
     {
         secondRandom = Math.floor(Math.random() * models.length);
     }
 
     return (
-        <div>
-            <div className='box'>{firstRandom}</div>
-            <div className='box'>{secondRandom}</div>
+        <div className={styles.cont}>
+            <div className={styles.box}>Try to search for</div>
+            <div className={styles.box}>{models[firstRandom]}</div>
+            <div className={styles.box}>{models[secondRandom]}</div>
         </div>
     )
 }
