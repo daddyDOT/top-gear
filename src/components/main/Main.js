@@ -6,7 +6,7 @@ const Main = () => {
   return (
     <div className={styles.container}>
         <div className={styles.description}>
-            <h3>// CSS 2023</h3>
+            <h3>&#47;&#47; CSS 2023</h3>
         <h1>
             We make searching for a vehicle easier for you!
         </h1>
@@ -16,7 +16,7 @@ const Main = () => {
         <a href='#section1'><Button variant="outlined">Search</Button></a>
         </div>
 
-        <div className={styles.image}><img src='https://uploads-ssl.webflow.com/62aa6a4065a03f9b7300ff81/62aa7359ac82d5f266269712_Header%20Image.png'></img></div>
+        <div className={styles.image}><img alt="" src='https://uploads-ssl.webflow.com/62aa6a4065a03f9b7300ff81/62aa7359ac82d5f266269712_Header%20Image.png'></img></div>
     </div>
   )
 }
