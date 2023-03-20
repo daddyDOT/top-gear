@@ -16,7 +16,7 @@ const Main = () => {
         <a href='#section1'><Button variant="outlined">Search</Button></a>
         </div>
 
-        <div className={styles.image}><img src='https://uploads-ssl.webflow.com/62aa6a4065a03f9b7300ff81/62aa7359ac82d5f266269712_Header%20Image.png'></img></div>
+        <div className={styles.image}><img alt="" src='https://uploads-ssl.webflow.com/62aa6a4065a03f9b7300ff81/62aa7359ac82d5f266269712_Header%20Image.png'></img></div>
     </div>
   )
 }
