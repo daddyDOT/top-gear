@@ -8,8 +8,8 @@ https://www.coding-summer-school.com/
 ## Authors
 
 - Me ([@daddyDOT](https://www.github.com/daddyDOT))
-- Faris Burić
-- Muhamed Bijedić
+- [@dadosuki](https://www.github.com/dadosuki)
+- [@mukisuzuki](https://www.github.com/mukisuzuki)
 
 
 ## Run Locally
